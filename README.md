@@ -1,6 +1,6 @@
 <div align="center">
 
-<h3><a href="https://github.com/JianhaoYu-AI">Hi, I'm Jianhao Yu</a> <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="28" alt="Animated waving hand" /></h3>
+<h3><img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="28" alt="Animated waving hand" /> <a href="https://github.com/JianhaoYu-AI">Hi, I'm Jianhao Yu</a></h3>
 
 <p><b>Currently focusing on Agentic AI &amp; Agent Harness</b></p>
 
