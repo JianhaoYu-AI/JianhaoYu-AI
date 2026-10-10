@@ -1,11 +1,10 @@
-
 <div align="center">
 
-### [Hi, I'm Jianhao Yu. AI Agent Researcher 👋](https://github.com/JianhaoYu-AI)
+<h3><a href="https://github.com/JianhaoYu-AI">Hi, I'm Jianhao Yu</a> <img src="https://media.giphy.com/media/hvRJCLFzcasrR4ia7z/giphy.gif" width="28" alt="Animated waving hand" /></h3>
 
-👋 Currently focusing on **Agentic AI Infrastructure**
+<p><b>Currently focusing on Agentic AI &amp; Agent Harness</b></p>
 
-<sub>🎓 Beijing Jiaotong University · 📍 Beijing, China</sub>
+<sub>🎓 M.S. in Artificial Intelligence · Beijing Jiaotong University &nbsp; | &nbsp; 📍 Beijing, China</sub>
 
 </div>
 
@@ -13,32 +12,29 @@
 <tr>
 <td width="50%" valign="top">
 
-**💼 Research & Experience**
-
-**🔬 Research**
-
-BJTU · Agent Harness & Verification
-
-**🛠️ Engineering**
-
-Jinxiu Heritage · LangGraph Agent
-
-Network Troubleshooting · MLAG / STP / VLAN
+<b>💼 Research &amp; Experience</b>
+<br /><br />
+<b>🔬 Research</b><br />
+AI Agent · Agent Harness · Evaluation &amp; Verification
+<br /><br />
+<b>🧑‍💻 Experience</b><br />
+Shanghai AI Laboratory · Research Services Intern<br />
+Agent Engineering · LangChain / LangGraph
+<br /><br />
+🏆 <a href="./Awards.md"><b>Awards · Experience · Publications →</b></a>
 
 </td>
 <td width="50%" valign="top">
 
-**💻 Projects & Open Source**
-
-🌐 **[NetScope](https://github.com/JianhaoYu-AI/NetScope)**
-
+<b>💻 Projects &amp; Open Source</b>
+<br /><br />
+🌐 <a href="https://github.com/JianhaoYu-AI/NetScope"><b>NetScope</b></a><br />
 Evidence-Driven Network Diagnosis
-
-🔍 **Agent Evidence Audit**
-
-Evaluation & Reproducibility
-
-🏠 [Homepage](https://jianhaoyu-ai.github.io/) · [Email](mailto:jianhaoyu@bjtu.edu.cn)
+<br /><br />
+🔍 <b>Agent Evidence Audit</b><br />
+Reproducible Evaluation &amp; Verification (research)
+<br /><br />
+🔗 <a href="https://jianhaoyu-ai.github.io/">Homepage</a> · <a href="mailto:jianhaoyu@bjtu.edu.cn">Email</a>
 
 </td>
 </tr>
