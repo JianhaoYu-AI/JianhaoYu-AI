@@ -17,30 +17,18 @@
 
 这个流程和普通的单轮问答相比，多了可观察的行动与反馈，因此便于定位错误来源：是查询设计有问题、工具调用失败、工具返回信息不充分，还是模型在汇总时误读了结果。
 
-## 三、实验记录与验证边界
 
-- 官方项目：[`bojieli/ai-agent-book`](https://github.com/bojieli/ai-agent-book)
-- 官方实验说明：[`chapter1/web-search-agent/README.md`](https://github.com/bojieli/ai-agent-book/blob/main/chapter1/web-search-agent/README.md)
-- 官方建议的离线运行命令：
-
-```bash
-python main.py --provider offline-demo --output demo.json
-```
-
-**判断标准**：终端中应能看到 `thought`、`action`、`observation`、`answer` 等类型的轨迹；打开 `demo.json`，对照 `question`、`trace` 与 `answer` 字段，确认每一步产生了什么信息。
-
-**重要说明**：`offline-demo` 回放的是作者预置的示例轨迹，并没有发出真实的搜索 API 请求。因此，它只能验证演示代码的流程与 JSON 输出，不能说明 Kimi/Moonshot 的在线搜索服务已经连通，也不能以示例结果证明最新事实。真正的在线验证还应检查实际 `web_search` 调用、服务返回状态、结果来源与最终答案的一致性。
-
-## 四、结合自身科研方向的思考
+## 三、结合自身科研方向的思考
 
 对于 Agent Harness、评测与持续学习方向，我认为仅比较最终答案的准确率还不够。假设两次任务都得到正确答案，其中一次依赖正确调用工具，另一次可能是模型碰巧猜对。若只有终局分数，二者会被当成同样成功；如果保存轨迹，就能进一步判断行动序列是否合理、证据是否支持答案，以及失败能否稳定复现。
 
 这也让我想到后续可以为一个小型 Agent 建立固定测试任务：记录工具调用成功率、观察信息质量、答案证据一致性，并在改变工具描述或上下文组织方式后进行对比。相比盲目更换底层模型，我更想先弄清 Harness 的哪些设计真正影响任务完成质量。
 
-## 五、下一步计划
+## 四、下一步计划
 
 1. 在自己的 Windows 环境运行官方 `offline-demo`，保存完整终端输出和 `demo.json`，截取含命令、运行环境和 ReAct 轨迹的真实截图。
 2. 尝试阅读 `main.py` 中的 CLI 分发流程及 `agent.py` 的轨迹处理逻辑，明确一次工具调用怎样回到对话上下文。
 3. 之后在自己持有有效 Moonshot API Key 且确认费用的前提下，再进行真实联网搜索测试；分别检查工具返回和最终答案，避免将“执行成功”等同于“事实准确”。
+4. Datawhale真的是特别好的社区哈哈哈，感觉这个精神在互联网太稀缺了，类似于github一样
 
 
