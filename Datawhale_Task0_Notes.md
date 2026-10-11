@@ -1,0 +1,51 @@
+# Datawhale 10 月 AI Agent 共学 · Task0 学习笔记
+
+**课程**：ai-agent-book 共学  
+**任务**：Task0 · Agent 基础与环境准备  
+**阅读内容**：《深入理解 AI Agent：设计原理与工程实践》第 1 章  
+**实验**：Chapter 1 / web-search-agent 的 `offline-demo`（理解 ReAct 控制流）
+
+## 一、我对 AI Agent 的理解
+
+读完第一章，我对 AI Agent 的认识比“会聊天的大模型”更具体了。书中用 **Agent = LLM + Context + Tools** 概括最小的工程组成：LLM 负责判断下一步做什么；Context 向模型提供与任务相关的信息，包括用户请求、历史观察和工具结果；Tools 把模型的决定转换为搜索、文件操作、代码执行等真实动作。这三个部分协同，才有可能让系统持续完成多步骤任务。
+
+这里还需要区分 **Agent 与 Environment**：外部网页、文件、数据库等属于环境；Agent 通过工具接口观察或改变环境。**Harness** 则是模型周围的运行和治理层，主要负责组织上下文、管理工具调用、维护循环和状态，并加入验证、权限等约束。我觉得把这些边界分清楚，有助于理解一个 Agent 究竟为什么成功或失败。
+
+## 二、ReAct 循环与第 1 章实验
+
+我重点关注了 `chapter1/web-search-agent` 的示例。ReAct 可以概括为 **思考（Reason）→ 行动（Act）→ 观察（Observe）→ 根据观察继续决策**。当用户提出需要外部信息的问题时，Agent 可以先判断应检索哪些关键词，再调用 `web_search`，读取工具返回的结果，检查证据是否足够；如果还缺少信息，就再次搜索；最后才汇总回答。
+
+这个流程和普通的单轮问答相比，多了可观察的行动与反馈，因此便于定位错误来源：是查询设计有问题、工具调用失败、工具返回信息不充分，还是模型在汇总时误读了结果。
+
+## 三、实验记录与验证边界
+
+- 官方项目：[`bojieli/ai-agent-book`](https://github.com/bojieli/ai-agent-book)
+- 官方实验说明：[`chapter1/web-search-agent/README.md`](https://github.com/bojieli/ai-agent-book/blob/main/chapter1/web-search-agent/README.md)
+- 官方建议的离线运行命令：
+
+```bash
+python main.py --provider offline-demo --output demo.json
+```
+
+**判断标准**：终端中应能看到 `thought`、`action`、`observation`、`answer` 等类型的轨迹；打开 `demo.json`，对照 `question`、`trace` 与 `answer` 字段，确认每一步产生了什么信息。
+
+**重要说明**：`offline-demo` 回放的是作者预置的示例轨迹，并没有发出真实的搜索 API 请求。因此，它只能验证演示代码的流程与 JSON 输出，不能说明 Kimi/Moonshot 的在线搜索服务已经连通，也不能以示例结果证明最新事实。真正的在线验证还应检查实际 `web_search` 调用、服务返回状态、结果来源与最终答案的一致性。
+
+## 四、结合自身科研方向的思考
+
+对于 Agent Harness、评测与持续学习方向，我认为仅比较最终答案的准确率还不够。假设两次任务都得到正确答案，其中一次依赖正确调用工具，另一次可能是模型碰巧猜对。若只有终局分数，二者会被当成同样成功；如果保存轨迹，就能进一步判断行动序列是否合理、证据是否支持答案，以及失败能否稳定复现。
+
+这也让我想到后续可以为一个小型 Agent 建立固定测试任务：记录工具调用成功率、观察信息质量、答案证据一致性，并在改变工具描述或上下文组织方式后进行对比。相比盲目更换底层模型，我更想先弄清 Harness 的哪些设计真正影响任务完成质量。
+
+## 五、下一步计划
+
+1. 在自己的 Windows 环境运行官方 `offline-demo`，保存完整终端输出和 `demo.json`，截取含命令、运行环境和 ReAct 轨迹的真实截图。
+2. 尝试阅读 `main.py` 中的 CLI 分发流程及 `agent.py` 的轨迹处理逻辑，明确一次工具调用怎样回到对话上下文。
+3. 之后在自己持有有效 Moonshot API Key 且确认费用的前提下，再进行真实联网搜索测试；分别检查工具返回和最终答案，避免将“执行成功”等同于“事实准确”。
+
+## 参考资料
+
+- 李博杰，《深入理解 AI Agent：设计原理与工程实践》，第 1 章：https://github.com/bojieli/ai-agent-book/blob/main/book/chapter1.md
+- 配套项目 1-2，Kimi Web Search Agent：https://github.com/bojieli/ai-agent-book/tree/main/chapter1/web-search-agent
+
+*本文为按第一章概念与实验说明整理的学习记录。具体运行截图请使用实际执行命令产生的真实终端画面。*
