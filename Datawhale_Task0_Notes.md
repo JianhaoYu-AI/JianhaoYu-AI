@@ -43,9 +43,4 @@ python main.py --provider offline-demo --output demo.json
 2. 尝试阅读 `main.py` 中的 CLI 分发流程及 `agent.py` 的轨迹处理逻辑，明确一次工具调用怎样回到对话上下文。
 3. 之后在自己持有有效 Moonshot API Key 且确认费用的前提下，再进行真实联网搜索测试；分别检查工具返回和最终答案，避免将“执行成功”等同于“事实准确”。
 
-## 参考资料
 
-- 李博杰，《深入理解 AI Agent：设计原理与工程实践》，第 1 章：https://github.com/bojieli/ai-agent-book/blob/main/book/chapter1.md
-- 配套项目 1-2，Kimi Web Search Agent：https://github.com/bojieli/ai-agent-book/tree/main/chapter1/web-search-agent
-
-*本文为按第一章概念与实验说明整理的学习记录。具体运行截图请使用实际执行命令产生的真实终端画面。*
