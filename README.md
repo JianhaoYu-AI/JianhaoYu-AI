@@ -31,7 +31,7 @@
       Android network diagnostics with live probes, evidence snapshots, budgeted tool calls, citation checks, and before/after measurements.<br />
       Kotlin/Compose + Node.js; <a href="https://github.com/JianhaoYu-AI/NetScope/blob/main/docs/testing.md">JUnit and gateway tests</a>.
       <br /><br />
-      <strong><a href="https://github.com/JianhaoYu-AI/SkillOpt">SkillOpt</a></strong> — Fork of <a href="https://github.com/microsoft/SkillOpt">microsoft/SkillOpt</a>; studying validation-gated agent skill optimization.
+      <strong><a href="https://github.com/microsoft/SkillOpt">Microsoft SkillOpt</a></strong> — Contributed an offline reproducibility checker for split integrity, artifact hashes, and hard/soft score aggregation, with regression tests and documentation. <a href="https://github.com/microsoft/SkillOpt/pull/329">PR #329, merged</a>.
       <br /><br />
       <strong><a href="https://github.com/JianhaoYu-AI/driver-fatigue-detection-system">Driver Fatigue Detection</a></strong> — Earlier computer-vision project with YOLO11 Web and YOLOv12 desktop implementations, trained weights, and historical training logs.
       <br /><br />
